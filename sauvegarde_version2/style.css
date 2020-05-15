@@ -1,0 +1,656 @@
+/*-------------- elements communs aux sections----------------*/
+
+	/*section contenu*/
+	.section-content {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		/*justify-content: space-around;*/
+	}
+
+		/*contenu de "section contenu" aligne en position basse*/
+		.section-content--positionLow {
+			align-items:flex-end;
+		}
+
+	/*bloc competence*/
+	.skill {
+		display: flex;
+		flex-direction: column;
+	}
+		/*largeur bloc competence*/
+		.skill--width40 {
+			width: 40%; /*specification*/
+		}
+
+		.skill--width60{
+			width: 60%;
+		}
+
+		/*largeur bloc competence*/
+		.skill--width70 {
+			width: 70%; /*specification*/
+		}
+
+		/* le titre du bloc competence*/
+		.skill-title {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
+			/*couleur du titre*/
+			.skill-title__heading {
+				color: #FF8B00;
+				margin-left: 10px;
+				font-size: 2em;
+			}
+
+		}
+
+	/*bloc experience*/
+	.experience {
+		display: flex;
+		flex-direction: column;
+	}
+		
+		/*largeur du bloc experience*/
+		.experience--width250 {
+			width: 250px;
+			/*line-height: 0px;*/
+		}
+
+		/*largeur du bloc experience*/
+		.experience--margin {
+			margin-left: 25%;
+			margin-bottom: 10%;
+		}
+
+		/*titre du bloc experience*/
+		.experience__title {
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-weight: bold;
+			line-height: 0px;
+		}
+
+			.experience__title strong{
+				color: #2144AC;
+			}
+
+		/*description du bloc experience*/
+		.experience__quote {
+			color: #4ab1d7;
+			font-style: italic;
+			text-align: justify;
+			line-height: 140%;
+		}
+
+			.experience__quote em {
+				color: #2144AC;
+			}
+
+	/*les cercles*/
+	.cercle {	
+		background-color: #2144AC;
+		border-radius: 50%;
+		border: 3px black solid;
+	}
+
+		.cercle--little {
+			height: 13px;
+			width: 13px;
+		}
+
+		.cercle--big {
+			height: 20px;
+			width: 20px;
+		}
+
+	/*les barres*/
+	.barre {
+		height: 2px;
+		background-color: #3BA3D0;
+	}
+
+/*--------------cadre du site----------------*/
+.container {
+		display:flex;
+		flex-direction: column;
+		width: 1200px;
+		margin-right: auto;
+		margin-left: auto;
+		color: black;
+		font-family: calibri;
+	}
+
+/*--------------header----------------*/
+.header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+	.header-quality {
+		display: block;
+		position: relative; /*important*/
+		width: 30%;
+		height: 255px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+		.header-quality__cercle {
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background-color: #3BA3D0;
+			border-radius: 50%;
+			color: white;
+		}
+
+			/*autonome*/
+			.header-quality__cercle--position1 {
+				position: absolute;
+				top: 15px;
+				left: 20px;
+				z-index: 3;
+				height: 100px;
+				width: 100px;
+				opacity: 0.7;
+				/*background-color: red;*/
+			}
+
+			/*perseverant*/
+			.header-quality__cercle--position2 {		
+				position: absolute;
+				top: 0px;
+				left: 95px;
+				z-index: 1;
+				height: 170px;
+				width: 170px;
+				color: black;
+				/*background-color: green;*/
+			}
+
+			/*entreprenant*/
+			.header-quality__cercle--position3 {
+				position: absolute;
+				top: 90px;
+				left: 180px;
+				z-index: 4;
+				height: 100px;
+				width: 100px;
+				opacity: 0.8;
+				/*background-color: yellow;*/
+			}
+
+			/*adaptable*/
+			.header-quality__cercle--position4 {
+				position: absolute;
+				top: 120px;
+				left: 105px;
+				z-index: 2;
+				height: 115px;
+				width: 115px;
+				opacity: 0.7;
+				/*background-color: orange;*/
+			}
+
+			/*curieux*/
+			.header-quality__cercle--position5 {
+				position: absolute;
+				top: 90px;
+				left: 0px;
+				z-index: 5;
+				height: 130px;
+				width: 130px;
+				opacity: 0.9;
+				/*background-color: purple;*/
+			}
+
+	.header-description {
+		width: 70%;
+		line-height: 80%;
+		width: 70%;
+	}
+
+		.header-description__title {
+			color: #FF8B00;
+			font-size: 2.5em;
+			text-align: right;
+			padding-top: 10px;
+		}
+
+		.header-description__subtitle {
+			color: #2144AC;
+			font-style: italic;
+			font-size: 1.7em;
+			text-align: right;
+		}
+
+		.header-description__quote {
+			font-style: italic;
+			font-size: 1.3em;
+			font-family: Times New Roman;	
+			text-align: justify;
+			margin-left: 20%;
+			line-height: 120%;
+		}
+
+		.header-description__quote strong{
+			color: #FF8B00;
+		}
+/*--------------section developpement applicatif----------------*/
+
+/*LES certificats*/
+.certificats {
+		display: block;
+		position: relative; /*important*/
+		height: 400px;
+/*		margin-right: auto;
+		margin-left: auto;*/
+	}
+
+	/*UN certificat*/
+	.certificat {
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+		.certificat strong {
+			color: #2144AC;
+			text-decoration: underline;
+		}
+
+	/*Gestion de projet*/
+	.certificats p:nth-child(1){
+		position: absolute;
+		top: 0px;
+		left: 250px;
+
+	}
+
+	/*Web*/
+	.certificats p:nth-child(2){
+		position: absolute;
+		top: 50px;
+		left: 455px;
+		margin-right: 30px;
+		text-align: right;
+	}
+
+	/*Java*/
+	.certificats p:nth-child(3){
+		position: absolute;
+		top: 200px;
+		left: 540px;
+		text-align: right;
+	}
+
+	/*Salesforce*/
+	.certificats p:nth-child(4){
+		position: absolute;
+		top: 310px;
+		left: 390px;
+	}
+
+	/*Design*/
+	.certificats p:nth-child(5){
+		position: absolute;
+		top: 310px;
+		left: 140px;
+	}
+
+	/*SEO*/
+	.certificats p:nth-child(6){
+		position: absolute;
+		top: 220px;
+		left: 60px;
+	}
+
+	/*Analytics*/
+	.certificats p:nth-child(7){
+		position: absolute;
+		top: 130px;
+		left: 40px;
+	}
+
+	/*Social media*/
+	.certificats p:nth-child(8){
+		position: absolute;
+		top: 50px;
+		left: 110px;
+	}
+
+.rayon {
+	position: absolute;
+	top: 100px;
+	left: 220px;
+	height: 180px;
+	width: 180px;
+	border-radius: 50%;
+	border: 4px  #2144AC solid;
+}
+
+.rond {
+	position: absolute;
+	top: 107px;
+	left: 244px;
+	background-color: #2144AC;
+	border-radius: 50%;
+	color: white;
+	height: 140px;
+	width: 140px;
+	text-align: center;
+	transform: rotate(340deg);
+}
+
+.skill--width60 > p {
+	text-align: right;
+	margin-right: 30px;
+	color: #7f7f7f;
+	font-style: italic;
+}
+
+/*--------------section formation systeme reseaux----------------*/
+
+/*bloc photo*/
+figure {
+	display: block;
+	position: relative; /*important*/
+	/*width: 25%;*/
+	height: 255px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+	figure img {
+		border-radius: 50%;
+		border: 2px #7f7f7f solid;
+		width: 300px;
+	}
+
+	figcaption {
+		position: absolute;
+		top: 230px;
+		left: 60px;
+		font-weight: bold;
+		font-size: 1.8em;
+		color: #2144AC;
+	}
+
+	/*barre1 black*/
+	figure div:nth-child(3){
+		position: absolute;
+		transform: rotate(250deg);
+		width: 285px;
+		top: -125px;
+		left: -90px;
+		/*background-color: black;	*/
+	}
+
+	/*barre2 green*/
+	figure div:nth-child(4){
+		position: absolute;
+		transform: rotate(148deg);
+		width: 55px;
+		top: 60px;
+		left: 277px;
+		/*background-color: green;	*/
+	}
+
+	/*barre3 orange*/
+	figure div:nth-child(5){
+		position: absolute;
+		transform: rotate(295deg);
+		width: 180px;
+		top: 369px;
+		left: -50px;
+		/*background-color: orange;*/
+	}
+
+/* ----------section experiences complementaires----------------*/
+
+/*bloc experience complementaire*/
+.experienceComplementaire {
+	display: block;
+	position: relative; /*important*/
+}
+
+/*bloc experiences superieurs*/
+.experienceComplementaire--height120 {
+	height: 120px;
+}
+
+	/*1er tableau*/
+	.experienceComplementaire--height120 table:nth-child(1){
+		position: absolute;
+		top: 40px;
+		left: 200px;
+	}
+
+	/*2eme tableau*/
+	.experienceComplementaire--height120 table:nth-child(2){
+		position: absolute;
+		top: 20px;
+		left: 600px;
+	}
+
+	/*3eme tableau*/
+	.experienceComplementaire--height120 table:nth-child(3){
+		position: absolute;
+		top: 0px;
+		left: 920px;
+	}
+
+/* bloc graphique*/
+.experienceComplementaire--height100 {
+	height: 100px;
+}
+	
+	/*cercle1 red*/
+	.experienceComplementaire--height100 div:nth-child(1){
+		position: absolute;
+		z-index: 2;
+		top: 140px;
+		left: 10px;
+		/*background-color: red;*/
+	}
+
+	/*cercle2 blue*/
+	.experienceComplementaire--height100 div:nth-child(2){
+		position: absolute;
+		z-index: 2;
+		top: 0px;
+		left: 300px;
+		/*background-color: blue;*/
+	}
+
+	/*cercle3 green*/
+	.experienceComplementaire--height100 div:nth-child(3){
+		position: absolute;
+		z-index: 2;
+		top: 120px;
+		left: 460px;
+		/*background-color: green;*/
+	}
+
+	/*cercle4 yellow*/
+	.experienceComplementaire--height100 div:nth-child(4){
+		position: absolute;
+		z-index: 2;
+		top:-40px;
+		left: 715px;
+		/*background-color: yellow;*/
+	}
+
+	/*cercle5 orange*/
+	.experienceComplementaire--height100 div:nth-child(5){
+		position: absolute;
+		z-index: 2;
+		top: 80px;
+		left: 920px;
+		/*background-color: orange;*/
+	}
+	/*cercle6 purple*/
+	.experienceComplementaire--height100 div:nth-child(6){
+		position: absolute;
+		z-index: 2;
+		top: -60px;
+		left: 1050px;
+		/*background-color: purple;*/
+	}
+
+	/*barre1 red*/
+	.experienceComplementaire--height100 div:nth-child(7){
+		position: absolute;
+		transform: rotate(154deg);
+		width: 305px;
+		top: 76px;
+		left: 11px;
+		/*background-color: red;	*/
+	}
+
+	/*barre2 blue*/
+	.experienceComplementaire--height100 div:nth-child(8){
+		position: absolute;
+		transform: rotate(38deg);
+		width: 185px;
+		top: 65px;
+		left: 298px;
+		/*background-color: blue;	*/
+	}
+
+	/*barre3 vert*/
+	.experienceComplementaire--height100 div:nth-child(9){
+		position: absolute;
+		transform: rotate(147deg);
+		width: 284px;
+		top: 48px;
+		left: 455px;
+		/*background-color: green;	*/
+	}
+
+	/*barre4 yellow*/
+	.experienceComplementaire--height100 div:nth-child(10){
+		position: absolute;
+		transform: rotate(211deg);
+		width: 223px;
+		top: 25px;
+		left: 717px;
+		/*background-color: yellow;	*/
+	}
+
+	/*barre5 orange*/
+	.experienceComplementaire--height100 div:nth-child(11){
+		position: absolute;
+		transform: rotate(132deg);
+		width: 173px;
+		top: 18px;
+		left: 908px;
+		/*background-color: orange;	*/
+	}
+
+
+/*bloc experiences inferieures*/
+.experienceComplementaire--height150 {
+	height: 150px;
+}
+
+		/*1er tableau*/
+		.experienceComplementaire--height150 table:nth-child(1){
+			position: absolute;
+			top: 40px;
+			left: 0px;
+		}
+
+		/*2eme tableau*/
+		.experienceComplementaire--height150 table:nth-child(2){
+			position: absolute;
+			top: 20px;
+			left: 450px;
+		}
+
+		/*3eme tableau*/
+		.experienceComplementaire--height150 table:nth-child(3){
+			position: absolute;
+			top: 0px;
+			left: 910px;
+		}
+
+/*mise en forme d'un "table"*/
+	
+	/*tableau*/
+	table {	
+		border-collapse: collapse;
+	}
+
+		/*cellules*/
+		td {
+			line-height: 4px;
+			padding-top: 0px;
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-bottom: 0px;
+		}
+
+		/*premiere cellule tableau*/
+		td:nth-child(1) {
+			border-right: 4px solid black;
+			font-weight: bold;
+		}
+
+		/*premiere cellule tableau 2eme et 4 eme paragraphe*/
+		td:nth-child(2) p:nth-child(2), p:nth-child(4)  {
+			font-style: italic;
+		}
+
+		.cell-tittle {
+			color: #2144AC;
+			font-weight: bold;
+		}
+
+/*--------------footer----------------*/
+	footer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		background-color: #2144AC;
+		color: white;
+		text-decoration: none;
+	}
+
+	.infoPersonnel {
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+		.infoPersonnel--orientation {
+			align-items: center;
+			transform: rotate(330deg);
+			line-height: 0px;
+			margin-bottom: 15px;
+		}
+
+		.infoPersonnel__descriptif {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin: 7px;
+		}
+
+			.infoPersonnel__descriptif a {
+				color: white;
+				text-decoration: none;
+			}
+
+			.infoPersonnel__descriptif img {
+				margin-right: 10px;
+			}

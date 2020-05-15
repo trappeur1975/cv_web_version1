@@ -1,0 +1,19 @@
+structuration du code css:
+1) principe dry et specificité
+2) methodologie BEM (bloc, element, modificateur) :
+	bloc = composant, ou une section d’une page qui est autonome et peut fonctionner indépendamment du reste de la page. On nomme un bloc en décrivant sa fonction.
+		.skill {
+  			color: #fff;
+  			margin-bottom: .25rem;
+		}
+	element =  élément de ce bloc
+		.skill__heading {
+			font-size: 4rem;
+			padding-left: 2.5rem;
+			margin: 0;
+			line-height: 6rem;
+		}
+	modificateur = modifient l’apparence d’un bloc mais aussi d’un élément
+		.skill--blue{
+			color: blue;
+		}

@@ -1,0 +1,542 @@
+// couleur du site
+$colorPrimary: #2144AC;
+$colorSecondary: #3BA3D0;
+$colorTertiary: #4ab1d7;
+$colorQuaternary: #FF8B00;
+$colorCinquernary: #7f7f7f;
+
+// bloc flex
+@mixin bloc-flex($direction, $justifyContent, $alignIitems){
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justifyContent;
+	align-items: $alignIitems;
+}
+
+// pour positionner un element sur le site en absolu
+@mixin positionElementAbsolute($top, $bottom, $left, $right, $heigth, $width, $zIndex, $position: absolute){
+	top: $top;
+	bottom: $bottom;
+	left: $left;
+	right: $right;
+	height: $heigth;
+	width: $width;
+	z-index: $zIndex;
+	position: $position;
+}
+
+@mixin positionElementRelative($height, $width, $display: block, $position: relative){
+		height: $height;
+		width: $width;
+		display: block;
+		position: relative; //important
+}
+
+// formatage du texte
+@mixin textFormatting($color, $fontFamily, $fontStyle, $fontSize, $fontWeight, $textAlign, $textDecoration, $lineHeight){
+	color: $color;
+	font-family: $fontFamily;
+	font-style: $fontStyle;
+	font-size: $fontSize;
+	font-weight: $fontWeight;	
+	text-align: $textAlign;
+	text-decoration: $textDecoration;
+	line-height: $lineHeight;
+}
+
+//mise en forme en cerle
+@mixin circleShape( $border, $backgroundColor, $borderRadius: 50%){
+	border: $border;
+	background-color: $backgroundColor;
+	border-radius: $borderRadius;
+}
+
+/*-------------- elements communs aux sections----------------*/
+
+	/*section contenu*/
+	.section-content {
+		@include bloc-flex(row, space-between, null);
+		
+		// contenu de "section contenu" aligne en position basse
+		&--positionLow {
+			align-items:flex-end;
+		}
+	}
+
+	/*bloc competence*/
+	.skill {
+		@include bloc-flex(column, null, null);
+
+		// largeur bloc competence
+		&--width40 {
+			width: 40%;
+		}
+
+		&--width60{
+			width: 60%;
+			
+			// pour la note de couleur gris en bas de bloc skill 
+			> p {
+				@include textFormatting($colorCinquernary, null, italic, null, null, right, null, null);
+				margin-right: 30px;
+			}
+		}
+
+		&--width70 {
+			width: 70%;
+		}
+	}
+
+		/* le titre du bloc competence*/
+		.skill-title {
+			@include bloc-flex(row, null, center);
+
+			// couleur du titre
+			&__heading {
+				@include textFormatting($colorQuaternary, null, null, 2em, null, null, null, null);
+				margin-left: 10px;
+			}
+		}
+
+	/*bloc experience*/
+	.experience {
+		@include bloc-flex(column, null, null);
+
+		// largeur du bloc experience
+		&--width250 {
+			width: 250px;
+			/*line-height: 0px;*/
+		}
+
+		// largeur du bloc experience
+		&--margin {
+			margin-left: 25%;
+			margin-bottom: 10%;
+		}
+	}
+		
+		/*titre du bloc experience*/
+		.experience__title {
+			@include bloc-flex(column, center, center);
+			@include textFormatting(null, null, null, null, bold, null, null, 0px);
+			align-items: center;
+
+			strong{
+				@include textFormatting($colorPrimary, null, null, null, null, null, null, null);
+			}
+		}
+
+		/*description du bloc experience*/
+		.experience__quote {
+			@include textFormatting($colorTertiary, null, italic, null, null, justify, null, 140%);
+
+			em {
+				@include textFormatting($colorPrimary, null, null, null, null, null, null, null);
+			}
+		}
+
+	/*les cercles*/
+	.cercle {	
+		@include circleShape(3px black solid, $colorPrimary);
+
+		&--little {
+			height: 13px;
+			width: 13px;
+		}
+
+		&--big {
+			height: 20px;
+			width: 20px;
+		}
+	}
+
+	/*les barres*/
+	.barre {
+		height: 2px;
+		background-color: $colorSecondary;
+	}
+
+/*--------------cadre du site----------------*/
+.container {
+		@include bloc-flex(column, null, null);
+		@include textFormatting(black, calibri, null, null, null, null, null, null);
+		width: 1200px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+/*--------------header----------------*/
+.header {
+	@include bloc-flex(row, space-around, null);
+}
+
+	.header-quality {
+		@include positionElementRelative(255px, 30%);
+		margin-right: auto;
+		margin-left: auto;
+
+		&__cercle {
+			@include bloc-flex(column, center, center);
+			@include textFormatting(white, null, null, null, null, null, null, null);
+			@include circleShape(null, $colorSecondary);
+
+			// autonome
+			&--position1 {
+				@include positionElementAbsolute(15px, null, 20px, null, 100px, 100px, 3);
+				opacity: 0.7;
+				/*background-color: red;*/
+			}
+
+			// perseverant
+			&--position2 {		
+				@include positionElementAbsolute(0px, null, 95px, null, 170px, 170px, 1);
+				color: black;
+				/*background-color: green;*/
+			}
+
+			// entreprenant
+			&--position3 {
+				@include positionElementAbsolute(90px, null, 180px, null, 100px, 100px, 4);
+				opacity: 0.8;
+				/*background-color: yellow;*/
+			}
+
+			// adaptable
+			&--position4 {
+				@include positionElementAbsolute(120px, null, 105px, null, 115px, 115px, 2);
+				opacity: 0.7;
+				/*background-color: orange;*/
+			}
+
+			// curieux
+			&--position5 {
+				@include positionElementAbsolute(90px, null, 0px, null, 130px, 130px, 5);
+				opacity: 0.9;
+				/*background-color: purple;*/
+			}
+		}		
+	}
+
+	.header-description {
+		width: 70%;
+		line-height: 80%;
+		width: 70%;
+
+		&__title {
+			@include textFormatting($colorQuaternary, null, null, 2.5em, null, right, null, null);
+			padding-top: 10px;
+		}
+
+		&__subtitle {
+			@include textFormatting($colorPrimary, null, italic, 1.7em, null, right, null, null);
+		}
+
+		&__quote {
+			@include textFormatting(null, Times New Roman, italic, 1.3em, null, justify, null, 120%);
+			margin-left: 20%;
+		}
+
+		&__quote strong{
+			@include textFormatting($colorQuaternary, null, null, null, null, null, null, null);
+		}
+	}
+
+/*--------------section developpement applicatif----------------*/
+
+/*LES certificats*/
+.certificats {
+	@include positionElementRelative(400px, null);
+	/*margin-right: auto;
+	margin-left: auto;*/
+
+	// Gestion de projet
+	p:nth-child(1){
+		@include positionElementAbsolute(0px, null, 250px, null, null, null, null);	
+	}
+
+	// Web
+	p:nth-child(2){
+		@include positionElementAbsolute(50px, null, 455px, null, null, null, null);
+		margin-right: 30px;
+		text-align: right;
+	}
+
+	// Java
+	p:nth-child(3){
+		@include positionElementAbsolute(200px, null, 540px, null, null, null, null);
+		@include textFormatting($colorPrimary, null, null, null, null, right, null, null);
+	}
+
+	// Salesforce
+	p:nth-child(4){
+		@include positionElementAbsolute(310px, null, 390px, null, null, null, null);
+	}
+
+	// Design
+	p:nth-child(5){
+		@include positionElementAbsolute(310px, null, 140px, null, null, null, null);
+	}
+
+	// SEO
+	p:nth-child(6){
+		@include positionElementAbsolute(220px, null, 60px, null, null, null, null);
+	}
+
+	// Analytics
+	p:nth-child(7){
+		@include positionElementAbsolute(130px, null, 40px, null, null, null, null);
+	}
+
+	// Social media
+	p:nth-child(8){
+		@include positionElementAbsolute(50px, null, 110px, null, null, null, null);
+	}
+}
+
+	/*UN certificat*/
+	.certificat {
+		@include bloc-flex(column, center, center);
+
+		strong {
+			@include textFormatting($colorPrimary, null, null, null, null, null, underline, null);
+		}
+	}
+
+.rayon {
+	@include positionElementAbsolute(100px, null, 220px, null, 180px, 180px, null);
+	@include circleShape(4px  $colorPrimary solid, null);
+}
+
+.rond {
+	@include positionElementAbsolute(107px, null, 244px, null, 140px, 140px, null);
+	// @mixin textFormatting($color, $fontFamily, $fontStyle, $fontSize, $fontWeight, $textAlign, $textDecoration, $lineHeight)
+	@include textFormatting(white, null, null, null, null, center, null, null);
+	@include circleShape(null, null);
+	background-color: $colorPrimary;
+	transform: rotate(340deg);
+}
+
+/*--------------section formation systeme reseaux----------------*/
+
+/*bloc photo*/
+figure {
+	@include positionElementRelative(255px, null);
+	margin-right: auto;
+	margin-left: auto;
+
+	img {
+		@include circleShape(2px $colorCinquernary solid, null);
+		width: 300px;
+	}
+
+	// barre1 black
+	div:nth-child(3){
+		@include positionElementAbsolute(-125px, null, -90px, null, null, 285px, null);
+		transform: rotate(250deg);
+		/*background-color: black;	*/
+	}
+
+	// barre2 green
+	div:nth-child(4){
+		@include positionElementAbsolute(60px, null, 277px, null, null, 55px, null);
+		transform: rotate(148deg);
+		/*background-color: green;	*/
+	}
+
+	// barre3 orange
+	div:nth-child(5){
+		@include positionElementAbsolute(369px, null, -50px, null, null, 180px, null);
+		transform: rotate(295deg);
+		/*background-color: orange;*/
+	}
+}
+
+	figcaption {
+		@include positionElementAbsolute(230px, null, 60px, null, null, null, null);
+		@include textFormatting($colorPrimary, null, null, 1.8em, bold, null, null, null);
+	}
+
+/* ----------section experiences complementaires----------------*/
+
+/*bloc experience complementaire*/
+.experienceComplementaire {
+	@include positionElementRelative(null, null);
+}
+
+/*bloc experiences superieurs*/
+.experienceComplementaire--height120 {
+	height: 120px;
+	
+	// 1er tableau
+	table:nth-child(1){
+		@include positionElementAbsolute(40px, null, 200px, null, null, null, null);
+	}
+
+	// 2eme tableau
+	table:nth-child(2){
+		@include positionElementAbsolute(20px, null, 600px, null, null, null, null);
+	}
+
+	// 3eme tableau
+	table:nth-child(3){
+		@include positionElementAbsolute(0px, null, 920px, null, null, null, null);
+	}
+}
+
+/* bloc graphique*/
+.experienceComplementaire--height100 {
+	height: 100px;
+
+	// cercle1 red
+	div:nth-child(1){
+		@include positionElementAbsolute(140px, null, 10px, null, null, null, 2);
+		/*background-color: red;*/
+	}
+
+	// cercle2 blue
+	div:nth-child(2){
+		@include positionElementAbsolute(0px, null, 300px, null, null, null, 2);
+		/*background-color: blue;*/
+	}
+
+	// cercle3 green
+	div:nth-child(3){
+		@include positionElementAbsolute(120px, null, 460px, null, null, null, 2);
+		/*background-color: green;*/
+	}
+
+	// cercle4 yellow
+	div:nth-child(4){
+		@include positionElementAbsolute(-40px, null, 715px, null, null, null, 2);
+		/*background-color: yellow;*/
+	}
+
+	// cercle5 orange
+	div:nth-child(5){
+		@include positionElementAbsolute(80px, null, 920px, null, null, null, 2);
+		/*background-color: orange;*/
+	}
+	// cercle6 purple
+	div:nth-child(6){
+		@include positionElementAbsolute(-60px, null, 1050px, null, null, null, 2);
+		/*background-color: purple;*/
+	}
+
+	// barre1 red
+	div:nth-child(7){
+		@include positionElementAbsolute(76px, null, 11px, null, null, 305px, null);
+		transform: rotate(154deg);
+		/*background-color: red;	*/
+	}
+
+	// barre2 blue
+	div:nth-child(8){
+		@include positionElementAbsolute(65px, null, 298px, null, null, 185px, null);
+		transform: rotate(38deg);
+		/*background-color: blue;	*/
+	}
+
+	// barre3 vert
+	div:nth-child(9){
+		@include positionElementAbsolute(48px, null, 455px, null, null, 284px, null);
+		transform: rotate(147deg);
+		/*background-color: green;	*/
+	}
+
+	/*barre4 yellow*/
+	div:nth-child(10){
+		@include positionElementAbsolute(25px, null, 717px, null, null, 223px, null);
+		transform: rotate(211deg);
+		/*background-color: yellow;	*/
+	}
+
+	// barre5 orange
+	div:nth-child(11){
+		@include positionElementAbsolute(18px, null, 908px, null, null, 173px, null);
+		transform: rotate(132deg);
+		/*background-color: orange;	*/
+	}
+}
+	
+/*bloc experiences inferieures*/
+.experienceComplementaire--height150 {
+	height: 150px;
+
+	// 1er tableau
+	table:nth-child(1){
+		@include positionElementAbsolute(40px, null, 0px, null, null, null, null);
+	}
+
+	// 2eme tableau
+	table:nth-child(2){
+		@include positionElementAbsolute(20px, null, 450px, null, null, null, null);
+	}
+
+	// 3eme tableau
+	table:nth-child(3){
+		@include positionElementAbsolute(0px, null, 910px, null, null, null, null);
+	}
+}
+
+		
+/*mise en forme d'un "table"*/
+	
+	/*tableau*/
+	table {	
+		border-collapse: collapse;
+	}
+
+		/*cellules*/
+		td {
+			line-height: 4px;
+			padding-top: 0px;
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-bottom: 0px;
+
+			// premiere cellule tableau
+			&:nth-child(1) {
+				border-right: 4px solid black;
+				@include textFormatting(null, null, null, null, bold, null, null, null);
+			}
+
+			// premiere cellule tableau 2eme et 4 eme paragraphe
+			&:nth-child(2) p:nth-child(2), p:nth-child(4)  {
+				@include textFormatting(null, null, italic, null, null, null, null, null);
+			}
+		}
+
+		.cell-tittle {
+			@include textFormatting($colorPrimary, null, null, null, bold, null, null, null);
+		}
+
+/*--------------footer----------------*/
+footer {
+	@include bloc-flex(row, space-around, null);
+	@include textFormatting(white, null, null, null, null, null, null, null);
+	background-color: $colorPrimary;
+}
+
+.infoPersonnel {
+	@include bloc-flex(column, center, null);
+
+	&--orientation {
+		@include textFormatting(null, null, null, null, null, null, null, 0px);
+		align-items: center;
+		transform: rotate(330deg);
+		margin-bottom: 15px;
+	}
+
+	&__descriptif {
+		@include bloc-flex(row, null, center);
+		margin: 7px;
+
+		a {
+			@include textFormatting(white, null, null, null, null, null, none, null);
+		}
+
+		img {
+			margin-right: 10px;
+		}
+	}		
+}
